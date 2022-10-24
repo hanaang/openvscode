@@ -1,10 +1,7 @@
 ARG PORT TOKEN
-FROM gitpod/openvscode-server:1.65.2
+FROM fnndsc/ubuntu-python3
 USER root
 RUN apt-get install -y curl screen wget git bash
 USER openvscode-server
-ENV OPENVSCODE_SERVER_ROOT=${OPENVSCODE_SERVER_ROOT}
-ENV TOKEN=${TOKEN}
-ENV PORT=${PORT}
 ADD start.sh /_railway/start.sh
 ENTRYPOINT [ "/bin/sh", "/_railway/start.sh" ]
